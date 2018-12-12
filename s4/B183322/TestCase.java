@@ -35,6 +35,38 @@ public class TestCase {
 	    FrequencerInterface  myObject;
 	    int freq;
 	    System.out.println("checking s4.B183322.Frequencer");
+	
+	    //TARGETがsetされていない
+	    System.out.println("TARGETがsetされていない場合の動作");
+	    myObject = new s4.B183322.Frequencer();
+	    myObject.setSpace("Hi Ho Hi Ho".getBytes());
+	    freq = myObject.frequency();
+	    freq = -1;
+	    if(-1 == freq) { System.out.println("OK"); } else {System.out.println("WRONG"); }
+
+	    //TARGETの長さが0
+	    System.out.println("TARGETの長さが0の場合の動作");
+	    myObject = new s4.B183322.Frequencer();
+	    myObject.setSpace("Hi Ho Hi Ho".getBytes());
+	    myObject.setTarget("".getBytes());
+	    freq = myObject.frequency();
+	    if(-1 == freq) { System.out.println("OK"); } else {System.out.println("WRONG"); }
+
+	    //SPACEがsetされていない
+	    System.out.println("SPACEがsetされていない場合の動作");
+	    myObject = new s4.B183322.Frequencer();
+	    myObject.setTarget("H".getBytes());
+	    freq = myObject.frequency();
+	    if(0 == freq) { System.out.println("OK"); } else {System.out.println("WRONG"); }
+
+	    //SPACEの長さが0
+	    System.out.println("SPACEの長さが0の場合の動作");
+	    myObject = new s4.B183322.Frequencer();
+	    myObject.setSpace("".getBytes());
+	    myObject.setTarget("H".getBytes());
+	    freq = myObject.frequency();
+	    if(0 == freq) { System.out.println("OK"); } else {System.out.println("WRONG"); }
+	
 	    myObject = new s4.B183322.Frequencer();
 	    myObject.setSpace("Hi Ho Hi Ho".getBytes());
 	    myObject.setTarget("H".getBytes());
@@ -50,6 +82,41 @@ public class TestCase {
 	    InformationEstimatorInterface myObject;
 	    double value;
 	    System.out.println("checking s4.B183322.InformationEstimator");
+
+	    //TARGETがsetされていない場合
+	    System.out.println("TARGETがsetされていない場合の動作");
+	    myObject = new s4.B183322.InformationEstimator();
+	    myObject.setSpace("3210321001230123".getBytes());
+	    value = myObject.estimation();
+	    if(0.0 == value) { System.out.println("OK"); } else {System.out.println("WRONG"); }
+
+
+	    //TARGETの長さが0の場合
+	    System.out.println("TARGETの長さが0の場合の動作");
+	    myObject = new s4.B183322.InformationEstimator();
+	    myObject.setSpace("3210321001230123".getBytes());
+	    myObject.setTarget("".getBytes());
+	    value = myObject.estimation();
+	    if(0.0 == value) { System.out.println("OK"); } else {System.out.println("WRONG"); }
+
+
+	    //SPACEがsetされていない場合
+	    System.out.println("SPACEがsetされていない場合の動作");
+	    myObject = new s4.B183322.InformationEstimator();
+	    myObject.setTarget("0".getBytes());
+	    value = myObject.estimation();
+	    if(Double.MAX_VALUE == value) { System.out.println("OK"); } else {System.out.println("WRONG"); }
+
+
+	    //SPACEの長さが0の場合
+	    System.out.println("SPACEの長さが0の場合の動作");
+	    myObject = new s4.B183322.InformationEstimator();
+	    myObject.setSpace("".getBytes());
+	    myObject.setTarget("0".getBytes());
+	    value = myObject.estimation();
+	    if(Double.MAX_VALUE == value) { System.out.println("OK"); } else {System.out.println("WRONG"); }
+
+
 	    myObject = new s4.B183322.InformationEstimator();
 	    myObject.setSpace("3210321001230123".getBytes());
 	    myObject.setTarget("0".getBytes());
