@@ -41,7 +41,6 @@ public class TestCase {
 	    myObject = new s4.B183322.Frequencer();
 	    myObject.setSpace("Hi Ho Hi Ho".getBytes());
 	    freq = myObject.frequency();
-	    freq = -1;
 	    if(-1 == freq) { System.out.println("OK"); } else {System.out.println("WRONG"); }
 
 	    //TARGETの長さが0
