@@ -196,6 +196,25 @@ public class Frequencer implements FrequencerInterface{
 	return 0; // This line should be modified.
     }
 
+// //ーーーーーーーーーーーもう一つの方法ーーーーーーーーーーーーーーー
+//
+//     private int subByteEndIndex(int start, int end) {
+// 	// It returns the next index of the first suffix which is greater than subBytes;
+// 	// not implemented yet
+// 	// For "Ho", it will return 7  for "Hi Ho Hi Ho".
+// 	// For "Ho ", it will return 7 for "Hi Ho Hi Ho".
+// 	//
+// 	// ****  Please write code here... ***
+// 	int result;
+//   for(int i=0; i<suffixArray.length; i++){
+// 		result = targetCompare(suffixArray[i],0,myTarget.length);
+//     if(result == 1) return i;
+// 	}
+// 	return 0; // This line should be modified.
+//     }
+//
+// //ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー
+
     public int subByteFrequency(int start, int end) {
 	/* This method be work as follows, but
 	int spaceLength = mySpace.length;
