@@ -79,7 +79,8 @@ public class Frequencer implements FrequencerInterface{
 	      return 1;
 	    }
 	  }
-	}else{
+    return 1;
+	}else if(i_length < j_length){
 	  for(int k = 0; k < i_length; k++){
 	    if(suffix_i[k] < suffix_j[k]){
 	      return -1;
@@ -87,8 +88,17 @@ public class Frequencer implements FrequencerInterface{
 	      return 1;
 	    }
 	  }
-	}
-	return 1;
+    return -1;
+	}else{
+    for(int k = 0; k < i_length; k++){
+      if(suffix_i[k] < suffix_j[k]){
+        return -1;
+      }else if(suffix_i[k] > suffix_j[k]){
+        return 1;
+      }
+    }
+    return 0;
+  }
     }
 
     public void setSpace(byte []space) {
