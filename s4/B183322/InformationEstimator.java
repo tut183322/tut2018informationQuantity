@@ -85,23 +85,29 @@ public class InformationEstimator implements InformationEstimatorInterface{
     // }
 
     public double estimation(){
+      //計算した結果最小となったものを格納する。再利用もする
       double[] iqr = new double[myTarget.length];
+      //一時的に計算結果を格納する。
       double result;
       double tmp;
-
+      //targetの長さ分繰り返す。
       for(int k=0; k<myTarget.length; k++){
-        result = 0.0;
+        result = Double.MAX_VALUE;;
+        //計算を行う。
         for(int l=0; l<=k; l++){
           myFrequencer.setTarget(subBytes(myTarget, l, k+1));
+          //1回目の処理
           if(l == 0){
-            result = iq(myFrequencer.frequency());
+            tmp = iq(myFrequencer.frequency());
+          //2回目以降の処理
           }else{
             tmp = iqr[l-1] + iq(myFrequencer.frequency());
-            if(result > tmp){
-              result = tmp;
-            }
+          }
+          if(result > tmp){
+            result = tmp;
           }
         }
+        //計算結果の格納
         iqr[k] = result;
       }
 
